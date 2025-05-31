@@ -1,15 +1,21 @@
 :root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
+  --primary: #1a237e;        /* Deep blue */
+  --secondary: #fbc02d;      /* Vivid yellow */
+  --accent: #43a047;         /* Green for call-to-action */
+  --surface: #ffffff;        /* Light background for the theme */
+  --text-color: #222d48;     /* Dark text for light backgrounds */
+  --text-secondary: #566178; /* Muted/secondary text */
+  --border-color: #e0e3ef;   /* Subtle border */
+  --navbar-bg: #f8f9fa;      /* Lighter neutral navbar bg */
+  --navbar-border: #d1d9eb;  /* Subtle navbar border */
+  --btn-hover: #182272;
 }
 
+/* Base body for light theme */
 body {
   margin: 0;
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  background-color: var(--kavia-dark);
+  background-color: var(--surface);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

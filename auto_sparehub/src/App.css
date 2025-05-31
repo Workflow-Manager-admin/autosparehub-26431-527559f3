@@ -103,22 +103,45 @@ body {
 }
 
 .btn {
-  background-color: var(--kavia-orange);
-  color: white;
+  background-color: var(--accent);
+  color: #fff;
   border: none;
   border-radius: 4px;
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px 0 rgba(67, 160, 71, 0.10);
 }
 
 .btn:hover {
-  background-color: #FF8B4D;
+  background-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 2px 8px 0 rgba(26, 35, 126, 0.10);
 }
 
 .btn-large {
   padding: 12px 24px;
   font-size: 1.1rem;
+}
+
+/* Utility for links with accent color */
+a, .accent {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Selection colors for better light theme feel */
+::selection {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+/* Card and panel backgrounds, if needed in future extensions */
+.card, .panel {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px 0 rgba(18, 30, 67, 0.03);
 }

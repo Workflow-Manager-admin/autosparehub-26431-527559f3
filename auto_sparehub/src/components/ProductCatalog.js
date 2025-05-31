@@ -112,3 +112,4 @@ function ProductCatalog() {
 
 // PUBLIC_INTERFACE
 export default ProductCatalog;
+

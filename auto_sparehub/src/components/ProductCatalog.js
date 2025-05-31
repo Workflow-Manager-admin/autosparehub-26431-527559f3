@@ -52,6 +52,44 @@ function ProductCatalog() {
     }
   ];
 
+  // Mock customer review data for each product (by product id)
+  const reviewsData = {
+    1: [
+      { name: "Alice", rating: 5, comment: "Perfect fit and much quieter now!" },
+      { name: "John Doe", rating: 4, comment: "Works well, fast shipping." }
+    ],
+    2: [
+      { name: "Maria", rating: 5, comment: "Good quality filter, fits my Corolla without issues." },
+      { name: "David", rating: 4, comment: "Engine runs smoother, happy with purchase." }
+    ],
+    3: [
+      { name: "Ryan", rating: 5, comment: "Battery is powerful, easy to install." },
+      { name: "Chen", rating: 4, comment: "Solid battery, decent value." }
+    ],
+    4: [
+      { name: "Priya", rating: 5, comment: "Excellent wipers, streak-free and easy to install!" },
+    ],
+    5: [
+      { name: "James", rating: 4, comment: "Very bright, improved my night driving." }
+    ],
+    6: [
+      { name: "Olga", rating: 5, comment: "Cleaned up my engine performance, great OEM part." },
+      { name: "Kumar", rating: 4, comment: "Exactly as described, shipping could be faster." }
+    ]
+  };
+
+  // Helper function to render stars for ratings
+  function renderStars(rating) {
+    return (
+      <span aria-label={`${rating} out of 5 stars`} style={{ color: "#fbc02d", fontWeight: 600 }}>
+        {"★".repeat(rating)}
+        <span style={{ color: "#e0e3ef" }}>
+          {"★".repeat(5 - rating)}
+        </span>
+      </span>
+    );
+  }
+
   return (
     <section style={{ marginTop: 40 }}>
       <h2 className="title" style={{ fontSize: "2.2rem", textAlign: "center", marginBottom: 24 }}>
@@ -79,9 +117,10 @@ function ProductCatalog() {
               flexDirection: "column",
               alignItems: "center",
               minHeight: 390,
+              position: "relative"
             }}
           >
-            <div style={{ fontWeight: 600, fontSize: "1.15rem", marginBottom: 9, color: "var(--primary)", textAlign: "center", marginBottom: 18 }}>
+            <div style={{ fontWeight: 600, fontSize: "1.15rem", marginBottom: 18, color: "var(--primary)", textAlign: "center" }}>
               {part.name}
             </div>
             <div style={{ fontSize: "0.99rem", color: "var(--text-secondary)", minHeight: 60, marginBottom: 8, textAlign: "center" }}>
@@ -89,6 +128,62 @@ function ProductCatalog() {
             </div>
             <div style={{ fontWeight: 700, color: "var(--accent)", fontSize: "1.22rem", marginTop: "auto" }}>
               ${part.price.toFixed(2)}
+            </div>
+            {/* Customer Reviews Section */}
+            <div
+              style={{
+                marginTop: 18,
+                width: "100%",
+                background: "#f9fbfd",
+                borderRadius: 8,
+                border: "1px solid #e0e3ef",
+                padding: "12px 10px",
+                marginBottom: 0,
+                minHeight: reviewsData[part.id] ? 0 : 40,
+                boxShadow: "0 1px 3px rgba(60,60,100,0.035)"
+              }}
+            >
+              <div
+                style={{
+                  fontWeight: 600,
+                  color: "var(--primary)",
+                  fontSize: "1rem",
+                  marginBottom: 6,
+                  letterSpacing: "0.5px",
+                }}
+              >
+                Customer Reviews
+              </div>
+              {(reviewsData[part.id] && reviewsData[part.id].length > 0) ? (
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  {reviewsData[part.id].map((review, idx) => (
+                    <div key={idx}
+                      style={{
+                        padding: "7px 10px 7px 7px",
+                        background: "#fff",
+                        border: "1px solid #e0e3ef",
+                        borderRadius: 6,
+                        marginBottom: 2,
+                        color: "#34384a",
+                        fontSize: "0.99rem",
+                        display: "flex",
+                        flexDirection: "column",
+                        boxShadow: "0 1px 3px rgba(60,60,100,0.02)"
+                      }}
+                    >
+                      <span style={{ fontWeight: 500, color: "var(--accent)", marginBottom: 2 }}>
+                        {review.name}
+                        <span style={{ marginLeft: 7 }}>{renderStars(review.rating)}</span>
+                      </span>
+                      <span style={{ color: "var(--text-secondary)", fontSize: "0.98rem" }}>
+                        {review.comment}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div style={{ color: "var(--text-secondary)", fontSize: "0.98rem" }}>No reviews yet.</div>
+              )}
             </div>
           </div>
         ))}

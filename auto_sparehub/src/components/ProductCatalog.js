@@ -81,20 +81,7 @@ function ProductCatalog() {
               minHeight: 390,
             }}
           >
-            <img
-              src={part.image}
-              alt={part.name}
-              style={{
-                width: 110,
-                height: 88,
-                objectFit: "cover",
-                borderRadius: 8,
-                marginBottom: 18,
-                border: "1px solid var(--border-color)"
-              }}
-              loading="lazy"
-            />
-            <div style={{ fontWeight: 600, fontSize: "1.15rem", marginBottom: 9, color: "var(--primary)", textAlign: "center" }}>
+            <div style={{ fontWeight: 600, fontSize: "1.15rem", marginBottom: 9, color: "var(--primary)", textAlign: "center", marginBottom: 18 }}>
               {part.name}
             </div>
             <div style={{ fontSize: "0.99rem", color: "var(--text-secondary)", minHeight: 60, marginBottom: 8, textAlign: "center" }}>

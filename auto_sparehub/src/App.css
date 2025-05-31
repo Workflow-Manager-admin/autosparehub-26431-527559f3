@@ -25,20 +25,24 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: var(--surface);
+  color: var(--text-color);
 }
 
+/* --- Navbar styling --- */
 .navbar {
-  background-color: var(--kavia-dark);
+  background-color: var(--navbar-bg);
   padding: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--navbar-border);
   position: fixed;
   top: 0;
   width: 100%;
   box-sizing: border-box;
   z-index: 100;
+  min-height: 64px;
 }
 
 .logo {
@@ -47,10 +51,11 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  color: var(--primary);
 }
 
 .logo-symbol {
-  color: var(--kavia-orange);
+  color: var(--secondary);
 }
 
 .container {

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-
+import ProductCatalog from './components/ProductCatalog';
 // PUBLIC_INTERFACE
 function App() {
   return (
@@ -55,6 +55,8 @@ function App() {
               Shop Featured Spares
             </a>
           </section>
+          {/* Product Catalog Section */}
+          <ProductCatalog />
         </div>
       </main>
 

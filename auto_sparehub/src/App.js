@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import ProductCatalog from './components/ProductCatalog';
+import AppReview from './components/AppReview';
+
 // PUBLIC_INTERFACE
 function App() {
   return (
@@ -57,6 +59,8 @@ function App() {
           </section>
           {/* Product Catalog Section */}
           <ProductCatalog />
+          {/* App-Level Reviews Section */}
+          <AppReview />
         </div>
       </main>
 
